@@ -1,0 +1,128 @@
+// ═══════════════════════════════════════════════════════════════════
+//   backend/services/hedera/verify.mjs
+//   ───────────────────────────────────────────────────────────────
+//   Reads an anchored message back from a PUBLIC Mirror Node — not
+//   from our own database — and compares it against a freshly
+//   recomputed hash of the record as it exists off-chain right now.
+//
+//   This is the entire verification claim in code:
+//     MATCH    → the off-chain record has not been altered since
+//                it was anchored
+//     MISMATCH → it has (or the two records never matched)
+//
+//   Mirror Node consensus can lag the submit by a few seconds, so
+//   fetchMirrorMessage retries with backoff rather than failing on
+//   the first miss (per Day 4 / Day 5 of the six-day plan).
+// ═══════════════════════════════════════════════════════════════════
+
+import { getNetwork } from "./client.mjs";
+import { canonicalHash } from "./hashing.mjs";
+
+/** Fetch one HCS message from the public Mirror Node REST API.
+ *  Retries with linear backoff because consensus can take a few
+ *  seconds to reach the mirror after submission. Returns the decoded
+ *  message (see decodeMirrorMessage) or throws after `retries`. */
+export async function fetchMirrorMessage(topicId, sequenceNumber, {
+  retries = 12, delayMs = 2000, network = getNetwork(),
+} = {}) {
+  const url = `https://${network}.mirrornode.hedera.com/api/v1/topics/${topicId}/messages/${sequenceNumber}`;
+
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    const res = await fetch(url);
+    if (res.ok) {
+      const raw = await res.json();
+      return { ...raw, decoded: decodeMirrorMessage(raw) };
+    }
+    if (attempt < retries) await new Promise((r) => setTimeout(r, delayMs));
+  }
+  throw new Error(
+    `Mirror Node did not return topic ${topicId} message #${sequenceNumber} ` +
+    `after ${retries} attempts. It may still be propagating — safe to retry ` +
+    `from the caller as a "Pending Verification" state rather than a failure.`
+  );
+}
+
+/** A second, independent way to prove an anchor is real: given the
+ *  actual Hedera transaction ID (payerAccount-validStartSeconds-
+ *  validStartNanos), confirm directly from the public Mirror Node
+ *  that it genuinely exists, succeeded, and landed on the expected
+ *  topic. Doesn't require knowing a sequence number in advance (the
+ *  repeated real bug in this project was pointing a sequence number
+ *  at the wrong message) -- this only needs the transaction ID
+ *  itself, which is what a HashScan link already gives directly. */
+export async function fetchMirrorTransaction(transactionId, {
+  retries = 8, delayMs = 2000, network = getNetwork(), expectedTopicId = null,
+} = {}) {
+  // Mirror Node's REST path uses dashes: payer-seconds-nanos, while
+  // HashScan/SDK transaction IDs use payer@seconds.nanos -- accept
+  // either form here so callers can pass through whichever they have.
+  const restId = transactionId.includes('@')
+    ? transactionId.replace('@', '-').replace('.', '-')
+    : transactionId;
+  const url = `https://${network}.mirrornode.hedera.com/api/v1/transactions/${restId}`;
+
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    const res = await fetch(url);
+    if (res.ok) {
+      const raw = await res.json();
+      const txn = raw.transactions?.[0];
+      if (!txn) throw new Error(`Mirror Node returned no transaction for ${transactionId}.`);
+      const isSuccess = txn.result === 'SUCCESS';
+      const isRightTopic = !expectedTopicId || txn.entity_id === expectedTopicId;
+      return {
+        found: true,
+        verified: isSuccess && isRightTopic,
+        result: txn.result,
+        topicId: txn.entity_id,
+        consensusTimestamp: txn.consensus_timestamp,
+        transactionHash: txn.transaction_hash,
+        reason: !isSuccess
+          ? `Transaction result was ${txn.result}, not SUCCESS.`
+          : !isRightTopic
+          ? `Transaction landed on topic ${txn.entity_id}, not the expected ${expectedTopicId}.`
+          : null,
+      };
+    }
+    if (attempt < retries) await new Promise((r) => setTimeout(r, delayMs));
+  }
+  throw new Error(
+    `Mirror Node did not return transaction ${transactionId} after ${retries} attempts.`
+  );
+}
+
+/** HCS messages are base64 on the wire. Decode + parse back to the
+ *  JSON payload anchor.mjs originally submitted. */
+export function decodeMirrorMessage(mirrorResponse) {
+  return JSON.parse(Buffer.from(mirrorResponse.message, "base64").toString("utf8"));
+}
+
+/** The verification itself: recompute the hash of `record` as it
+ *  exists RIGHT NOW and compare against what was anchored.
+ *
+ *  Returns { verified: true }               → MATCH
+ *       or { verified: false, reason }      → MISMATCH, with why
+ *
+ *  This is what /api/transfers/:id/compliance/verify (the
+ *  endpoint) should call after fetching the stored record and its
+ *  anchor reference. */
+export function verifyRecord(record, anchoredMessage) {
+  const recomputed = `sha256:${canonicalHash(record)}`;
+  const anchored = anchoredMessage.decoded?.recordHash ?? anchoredMessage.recordHash;
+
+  if (recomputed === anchored) {
+    return {
+      verified: true,
+      recordHash: anchored,
+      consensusTimestamp: anchoredMessage.consensus_timestamp,
+    };
+  }
+  return {
+    verified: false,
+    reason: "Recomputed hash does not match the anchored hash — the off-chain " +
+            "record has changed since it was anchored, or does not correspond " +
+            "to this anchor.",
+    recomputedHash: recomputed,
+    anchoredHash: anchored,
+  };
+}
+
