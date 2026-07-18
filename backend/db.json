@@ -1,0 +1,18 @@
+{
+  "transactions": {
+    "TEST-VERIFY-FIX": {
+      "id": "TEST-VERIFY-FIX",
+      "senderName": "Test Sender",
+      "complianceStatus": "verified",
+      "complianceRecord": {
+        "recordId": "CMP-TEST-VERIFY-FIX",
+        "transferRef": "abc123",
+        "provider": "AUTOMATED_SYSTEM",
+        "outcome": "PASSED",
+        "senderName": "Test Sender",
+        "amount": 100
+      }
+    }
+  },
+  "communityPosts": []
+}
