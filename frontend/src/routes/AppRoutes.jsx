@@ -1,0 +1,79 @@
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import CollectionHome from '../pages/CollectionHome';
+import Home from '../pages/Home';
+import Landing from '../pages/Landing';
+import HowItWorks from '../pages/HowItWorks';
+import Community from '../pages/Community';
+import SendMoney from '../pages/SendMoney';
+import ReviewTransfer from '../pages/ReviewTransfer';
+import Payment from '../pages/Payment';
+import TransactionStatus from '../pages/TransactionStatus';
+import TransactionReceipt from '../pages/TransactionReceipt';
+import ComplianceVerification from '../pages/ComplianceVerification';
+import TamperDemo from '../pages/TamperDemo';
+import TrackTransaction from '../pages/TrackTransaction';
+import NotFound from '../pages/NotFound';
+import AppShell from '../components/app/AppShell';
+import AppHome from '../pages/app/AppHome';
+import AppTransfers from '../pages/app/AppTransfers';
+import AppVerify from '../pages/app/AppVerify';
+import AppProfile from '../pages/app/AppProfile';
+import AppSendMoneyFlow from '../components/app/AppSendMoneyFlow';
+import AppCommunity from '../pages/app/AppCommunity';
+import AppTransactionDetail from '../pages/app/AppTransactionDetail';
+
+function AppHomeRoute() {
+  return <AppShell><AppHome /></AppShell>;
+}
+function AppTransfersRoute() {
+  const navigate = useNavigate();
+  return <AppShell title="Transfers" showBack onBack={() => navigate('/app')}><AppTransfers /></AppShell>;
+}
+function AppVerifyRoute() {
+  const navigate = useNavigate();
+  return <AppShell title="Verify" showBack onBack={() => navigate('/app')}><AppVerify /></AppShell>;
+}
+function AppProfileRoute() {
+  const navigate = useNavigate();
+  return <AppShell title="Profile" showBack onBack={() => navigate('/app')}><AppProfile /></AppShell>;
+}
+function AppSendRoute() {
+  const navigate = useNavigate();
+  return <AppShell title="Send money" showBack onBack={() => navigate('/app')}><AppSendMoneyFlow /></AppShell>;
+}
+function AppCommunityRoute() {
+  const navigate = useNavigate();
+  return <AppShell title="Community" showBack onBack={() => navigate('/app')}><AppCommunity /></AppShell>;
+}
+function AppTransactionDetailRoute() {
+  const navigate = useNavigate();
+  return <AppShell title="Transaction" showBack onBack={() => navigate('/app/transfers')}><AppTransactionDetail /></AppShell>;
+}
+
+export default function AppRoutes() {
+  return (
+    <Routes>
+      <Route path="/" element={<CollectionHome />} />
+      <Route path="/cross-border" element={<Home />} />
+      <Route path="/how-it-works" element={<HowItWorks />} />
+      <Route path="/landing" element={<Landing />} />
+      <Route path="/community" element={<Community />} />
+      <Route path="/app" element={<AppHomeRoute />} />
+      <Route path="/app/transfers" element={<AppTransfersRoute />} />
+      <Route path="/app/verify" element={<AppVerifyRoute />} />
+      <Route path="/app/profile" element={<AppProfileRoute />} />
+      <Route path="/app/send" element={<AppSendRoute />} />
+      <Route path="/app/community" element={<AppCommunityRoute />} />
+      <Route path="/app/transaction/:id" element={<AppTransactionDetailRoute />} />
+      <Route path="/send-money" element={<SendMoney />} />
+      <Route path="/review-transfer" element={<ReviewTransfer />} />
+      <Route path="/payment" element={<Payment />} />
+      <Route path="/transaction/:id" element={<TransactionStatus />} />
+      <Route path="/transaction/:id/receipt" element={<TransactionReceipt />} />
+      <Route path="/transaction/:id/verify" element={<ComplianceVerification />} />
+      <Route path="/tamper-demo" element={<TamperDemo />} />
+      <Route path="/track" element={<TrackTransaction />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
+}
