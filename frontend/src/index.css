@@ -1,0 +1,320 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #04070f;
+    --color-surface: #0f1629;
+    --color-surface-2: #131d35;
+    --color-border: rgba(255, 255, 255, 0.08);
+    --color-text: #f0f4ff;
+    --color-text-muted: #8b9cc8;
+    --color-brand: #6c56e3;
+
+    --color-accent: #8874ee;
+  }
+
+  /* ─── Semantic theme tokens ───────────────────────────────────────
+     Light is the default (no class needed). .dark on <html> switches
+     to the dark palette. Every component reads these tokens rather
+     than a hardcoded color, so the whole site follows one switch. */
+  :root {
+    --canvas: #f7f7fb;
+    --surface: #ffffff;
+    --surface-2: #f0f0f5;
+    --ink: #14161b;
+    --ink-muted: #5b6270;
+    --hairline: rgba(10, 11, 16, 0.1);
+  }
+  html.dark {
+    --canvas: #0a0b10;
+    --surface: #12141b;
+    --surface-2: #181a21;
+    --ink: #f4f4f2;
+    --ink-muted: #9ca3af;
+    --hairline: rgba(255, 255, 255, 0.1);
+  }
+
+  * {
+    border-color: var(--hairline);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    background-color: var(--canvas);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0f1629;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #6c56e355;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #6c56e3;
+  }
+}
+
+@layer components {
+  /* Glass card — layered shadow instead of a single flat one, plus a
+     near-invisible grain texture. Small details, but they're exactly
+     what separates a hand-tuned card from an untouched Tailwind default. */
+  .glass {
+    @apply backdrop-blur-sm rounded-2xl;
+    background-color: var(--surface);
+    border: 1px solid var(--hairline);
+    box-shadow: 0 1px 2px rgba(10, 11, 16, 0.04), 0 4px 12px rgba(10, 11, 16, 0.04), 0 16px 32px -8px rgba(10, 11, 16, 0.06);
+    position: relative;
+  }
+  .glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0.4;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  }
+
+  .glass-dark {
+    @apply backdrop-blur-md rounded-2xl;
+    background-color: var(--surface-2);
+    border: 1px solid var(--hairline);
+    box-shadow: 0 1px 2px rgba(10, 11, 16, 0.04), 0 4px 12px rgba(10, 11, 16, 0.04), 0 16px 32px -8px rgba(10, 11, 16, 0.06);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #6c56e3 0%, #8874ee 100%);
+  }
+
+  .gradient-text-success {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #3d7ee8 0%, #6fa8f5 100%);
+  }
+
+  /* Glow button */
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-200;
+    background: linear-gradient(135deg, #6c56e3 0%, #8874ee 100%);
+    box-shadow: 0 0 20px rgba(108, 86, 227, 0.3);
+  }
+  .btn-primary:hover {
+    box-shadow: 0 0 30px rgba(108, 86, 227, 0.5);
+    transform: translateY(-1px);
+  }
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+  .btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .btn-secondary {
+    @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all duration-200;
+    color: var(--ink);
+    border: 1px solid var(--hairline);
+    background-color: var(--surface);
+  }
+  .btn-secondary:hover {
+    @apply border-brand-400;
+    background-color: var(--surface-2);
+    transform: translateY(-1px);
+  }
+  .btn-secondary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .btn-danger {
+    @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-200;
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  }
+  .btn-danger:hover {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .btn-success {
+    @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-200;
+    background: linear-gradient(135deg, #3d7ee8 0%, #6fa8f5 100%);
+  }
+  .btn-success:hover {
+    box-shadow: 0 0 20px rgba(61, 126, 232, 0.4);
+    transform: translateY(-1px);
+  }
+
+  /* Form input */
+  .form-input {
+    @apply w-full rounded-xl px-4 py-3 transition-all duration-200 outline-none;
+    background-color: var(--surface);
+    border: 1px solid var(--hairline);
+    color: var(--ink);
+  }
+  .form-input::placeholder { color: var(--ink-muted); opacity: 0.7; }
+  .form-input:focus {
+    @apply border-brand-500;
+    background-color: var(--surface);
+    box-shadow: 0 0 0 3px rgba(108, 86, 227, 0.15);
+  }
+  .form-input.error {
+    @apply border-danger-500;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+  }
+
+  /* Section spacing */
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .container-app {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Hash display */
+  .hash-display {
+    @apply font-mono text-xs text-accent-400 rounded-lg px-3 py-2 break-all border border-accent-400/20;
+    background-color: var(--surface-2);
+  }
+
+  /* Step connector line */
+  .step-line {
+    @apply w-0.5 bg-gradient-to-b from-brand-500 to-transparent flex-shrink-0;
+    min-height: 32px;
+  }
+
+  .step-line-inactive {
+    @apply w-0.5 flex-shrink-0;
+    background-color: var(--hairline);
+    min-height: 32px;
+  }
+}
+
+@layer utilities {
+  .bg-white\/8 {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Animated gradient border */
+  .gradient-border {
+    position: relative;
+    background-clip: padding-box;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, #6c56e3, #8874ee);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* Noise overlay */
+  .noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .print-receipt {
+    background: white !important;
+    color: black !important;
+    border: 1px solid #ddd !important;
+  }
+}
+
+.bg-canvas  { background-color: var(--canvas); }
+.bg-surface { background-color: var(--surface); }
+.text-ink   { color: var(--ink); }
+.text-ink-muted { color: var(--ink-muted); }
+.border-hairline { border-color: var(--hairline); }
+
+/* Currency ticker — infinite horizontal scroll. The list is rendered
+   twice back-to-back and the animation moves exactly one copy's width,
+   so the loop point is invisible. Pauses on hover so a specific
+   currency can actually be read, not just glimpsed mid-scroll. */
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll 40s linear infinite;
+}
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+.ticker-mask {
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+
+/* Slow, continuous globe rotation — decorative, signals global reach */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+/* Blue glass hero panel — genuine glassmorphism: a translucent,
+   blurred, blue-tinted panel with an inner highlight, sitting on top
+   of the hero gradient rather than content floating directly on it. */
+.hero-glass {
+  background: linear-gradient(160deg, rgba(59, 111, 219, 0.14) 0%, rgba(30, 58, 122, 0.10) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(147, 181, 255, 0.16);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 8px 32px rgba(5, 10, 25, 0.35);
+}
+
+/* Twinkling stars on the neon globe decoration */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 1; }
+}
+.star-twinkle {
+  animation: twinkle 2.4s ease-in-out infinite;
+}
