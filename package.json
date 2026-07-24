@@ -1,0 +1,35 @@
+{
+  "name": "ddib2026-og04",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "db:generate": "prisma generate",
+    "test": "node --test backend/services/hedera/__tests__/*.test.mjs backend/services/settlement/__tests__/*.test.mjs",
+    "test:vitest": "vitest run",
+    "test:e2e": "playwright test",
+    "demo:modular": "node demo-modular.mjs",
+    "demo:router": "node demo-router.mjs",
+    "server": "node backend/server.mjs",
+    "client": "npm --prefix frontend run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [],
+  "license": "UNLICENSED",
+  "type": "commonjs",
+  "dependencies": {
+    "@fontsource/plus-jakarta-sans": "^5.3.0",
+    "@hashgraph/sdk": "^2.81.0",
+    "@prisma/client": "^6.19.3",
+    "concurrently": "^10.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "prisma": "^6.19.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "supertest": "^7.2.2",
+    "vitest": "^4.1.10"
+  }
+}
