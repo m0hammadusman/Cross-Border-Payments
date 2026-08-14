@@ -36,7 +36,7 @@ const badges = [
 ];
 
 export default function NotificationPhotoSection({
-  imageSrc = '/hub.jpeg',
+  imageSrc = '/hub-new.png',
   imageAlt = 'Person checking a transfer on their phone',
 }) {
   return (
@@ -44,7 +44,7 @@ export default function NotificationPhotoSection({
       className="relative w-full rounded-3xl overflow-hidden bg-[#0a1428]"
       style={{
         aspectRatio: ASPECT_RATIO,
-        background: `#0a1428 center / contain no-repeat url(${imageSrc})`,
+        background: `#0a1428 center / cover no-repeat url(${imageSrc})`,
         containerType: 'inline-size',
       }}
       role="img"
