@@ -33,12 +33,12 @@ that the researched liquidity depth suggests visible slippage.
 | **Hedera** | Fully real, a genuine HTS token transfer on testnet, a real transaction ID, verifiable on HashScan |
 | **Ethereum / Solana / Base** | The *decision* is real and anchored; actual execution is a clearly labeled non-event, no funded testnet credentials exist for these chains in this project yet |
 
-{% hint style="warning" %}
+::: warning
 This project deliberately does not fabricate a transaction reference
 for a chain it cannot actually reach. See
 [Roadmap](../project/roadmap.md) for what full multi-chain execution
 would require.
-{% endhint %}
+:::
 
 ## Bridging, when it's needed
 
@@ -74,6 +74,6 @@ Hedera is preferred whenever it's viable (see above). When it isn't, the partner
 
 All four are first-class CCTP (Cross-Chain Transfer Protocol) chains, meaning native burn-and-mint transfer without a third-party bridge's wrap risk. All four carry natively-issued USDC (Circle mints directly on each), which is why they're viable candidates at all -- a bridged/wrapped USDC would carry the bridge's own risk on top of everything else.
 
-{% hint style="warning" %}
+::: warning
 BNB Chain's total stablecoin figure is dominated by USDT, which is excluded from this design (see [Regulatory Landscape](../legal/regulatory-landscape.md)). Citing the $14B headline number without this caveat would overstate the chain's relevant liquidity by roughly 2-3x.
-{% endhint %}
+:::

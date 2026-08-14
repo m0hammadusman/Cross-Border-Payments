@@ -15,9 +15,9 @@ The moment a transfer's stablecoin leg is large enough that Hedera's own liquidi
 
 ## USDC supply by chain, mid-2026
 
-{% hint style="info" %}
+::: info
 Figures below are approximate and dated, on-chain stablecoin supply moves daily, and different trackers (DeFiLlama, Circle's own Reserve Reports) report slightly different snapshots depending on the exact date queried. Re-verify before citing a specific number as current.
-{% endhint %}
+:::
 
 | Chain | USDC supply (approx., mid-2026) | Share among these 5 chains | Source basis |
 |---|---|---|---|

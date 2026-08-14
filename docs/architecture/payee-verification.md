@@ -18,14 +18,14 @@ sent, the account name and IBAN/sort code are submitted to the
 | `not_matched` | Details don't correspond to the account | Block the transfer; ask for corrected recipient details |
 | `unavailable` | The receiving bank doesn't support the check | Proceed, flagged as unverified |
 
-{% hint style="info" %}
+::: info
 This check happens **between banks**, only a party with a banking
 relationship can query it. That means it is performed by our
 **licensed payout partner**, not by us. We display the result; we
 don't (and structurally can't) perform the check ourselves. This is
 the same non-custodial boundary as everywhere else in this
 architecture.
-{% endhint %}
+:::
 
 ## What happens if the destination bank doesn't accept the funds?
 

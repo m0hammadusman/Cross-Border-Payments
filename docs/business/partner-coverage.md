@@ -10,12 +10,12 @@ accounts), MiCA CASP authorisation (Malta FSA, Feb 2026, passported
 EEA-wide), UK EMI, and US MSB/MTL coverage. Strong fit for: **USD,
 GBP, EUR, AED, SGD**.
 
-{% hint style="success" %}
+::: tip
 Mastercard announced its acquisition of BVNK in March 2026 for up to
 $1.8B, larger than Stripe's 2024 Bridge acquisition, and further
 validation that card networks are moving to own stablecoin
 infrastructure rather than treat it as a threat.
-{% endhint %}
+:::
 
 ## Where BVNK's own material shows gaps, and named alternatives
 

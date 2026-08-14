@@ -9,7 +9,7 @@ DDiB 2026 · University of Zurich
 > collection hub, this project lives at `/cross-border`, and a sister
 > project, **OnChain Oversight**, extends the same trust-layer
 > philosophy to a regulator-facing audience. See
-> [Milestones](docs/project/milestones.md) for the full timeline of
+> [Milestones](project/milestones.md) for the full timeline of
 > what was built where and when.
 
 ## What this proves

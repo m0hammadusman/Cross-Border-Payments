@@ -16,7 +16,7 @@ const navLinks = [
 ];
 
 // TODO: If you name your repository something else on GitHub, update "Cross-Border-Payments" below.
-export const DOCS_URL = 'https://github.com/m0hammadusman/Cross-Border-Payments/blob/main/docs/README.md';
+export const DOCS_URL = 'https://m0hammadusman.github.io/Cross-Border-Payments/';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

@@ -24,9 +24,9 @@ This is selective disclosure applied to the one piece of this architecture that'
 
 Per PCI DSS v4.0.1 (mandatory since 2025, no transition period remaining as of 2026), the cheapest and most secure posture is **scope reduction**: if raw cardholder data never reaches our systems, PCI DSS's twelve requirements largely don't apply to us at all.
 
-{% hint style="warning" %}
+::: warning
 The current sandbox `Payment.jsx` collects card number and CVV directly into its own form for demonstration purposes. **In a production build, this must be replaced with a hosted payment field or tokenized flow from the licensed PSP** (e.g. Stripe Elements, Stripe.js), so the raw card number is submitted directly from the browser to the PSP and this system only ever receives a token. This is an architecture requirement, not an optional hardening step, it is the difference between being in PCI DSS scope and not being in it at all.
-{% endhint %}
+:::
 
 ## GDPR, data minimization and subject rights
 

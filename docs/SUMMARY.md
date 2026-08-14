@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Introduction](README.md)
+* [Introduction](index.md)
 
 ## Get Started
 * [How It Works](get-started/how-it-works.md)

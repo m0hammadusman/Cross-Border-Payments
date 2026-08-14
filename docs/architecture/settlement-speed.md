@@ -26,13 +26,13 @@ Every other supported currency defaults to **1–2 business
 days via standard bank transfer**, stated as an estimate, not dressed
 up as a confirmed instant rail we haven't verified.
 
-{% hint style="success" %}
+::: tip
 This table lives in code, not just documentation:
 `frontend/src/data/settlementSpeed.js`. The "Estimated delivery" field
 on the transfer summary reads from it live, pick EUR as the
 receiving currency and the summary shows "10 seconds (SEPA Instant)",
 not a generic default.
-{% endhint %}
+:::
 
 ## Why the stablecoin leg is fast but not the whole story
 

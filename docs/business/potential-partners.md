@@ -4,13 +4,13 @@ A researched, named candidate list per region, not aspirational coverage claims.
 
 ## Africa
 
-{% hint style="info" %}
+::: info
 African mobile money providers (MTN, Airtel, and generally M-Pesa's
 ecosystem too) require a **signed partnership agreement before**
 releasing API documentation, a real operational friction point, not
 a paperwork formality. Budget for a business-development cycle before
 any technical integration work can start, not just an API key request.
-{% endhint %}
+:::
 
 | Candidate | Coverage | Notes |
 |---|---|---|

@@ -70,13 +70,13 @@ testnet.
      rather than fabricated.
 ```
 
-{% hint style="success" %}
+::: tip
 The $18,111,247 figure in the run above reflects the liquidity source
 in use at the time (DeFiLlama). The liquidity source was later
 switched to SaucerSwap's own `/stats` endpoint, a named Hedera
 ecosystem partner rather than a third-party aggregator, verified
 separately end to end: $26,510,503, live, not hardcoded.
-{% endhint %}
+:::
 
 ## Completion anchor (Hedera Schedule Service), a real captured run
 

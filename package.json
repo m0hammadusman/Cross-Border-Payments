@@ -12,7 +12,10 @@
     "demo:router": "node demo-router.mjs",
     "server": "node backend/server.mjs",
     "client": "npm --prefix frontend run dev",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "keywords": [],
   "license": "UNLICENSED",
@@ -30,6 +33,8 @@
   "devDependencies": {
     "@playwright/test": "^1.61.1",
     "supertest": "^7.2.2",
-    "vitest": "^4.1.10"
+    "vitepress": "^1.6.4",
+    "vitest": "^4.1.10",
+    "vue": "^3.5.41"
   }
 }

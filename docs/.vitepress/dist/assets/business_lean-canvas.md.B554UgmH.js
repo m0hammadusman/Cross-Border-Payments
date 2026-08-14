@@ -1,0 +1,75 @@
+import{_ as a,o as s,c as e,a0 as p}from"./chunks/framework.BQGW-Zpy.js";const m=JSON.parse('{"title":"Lean Canvas","description":"","frontmatter":{},"headers":[],"relativePath":"business/lean-canvas.md","filePath":"business/lean-canvas.md"}'),t={name:"business/lean-canvas.md"};function i(l,n,r,o,c,d){return s(),e("div",null,[...n[0]||(n[0]=[p(`<h1 id="lean-canvas" tabindex="-1">Lean Canvas <a class="header-anchor" href="#lean-canvas" aria-label="Permalink to &quot;Lean Canvas&quot;">​</a></h1><blockquote><p>Assembled from <a href="./business-model.html">Business Model</a>, <a href="./market-analysis.html">Market Analysis</a>, <a href="./go-to-market.html">Go-to-Market Strategy</a>, and <a href="./swot.html">SWOT Analysis</a>.</p></blockquote><hr><div class="language- vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang"></span><pre class="shiki shiki-themes github-light github-dark vp-code" tabindex="0"><code><span class="line"><span>┌─────────────────────────┬──────────────────────────┬─────────────────────────┐</span></span>
+<span class="line"><span>│  PROBLEM                │  SOLUTION                │  UNIQUE VALUE           │</span></span>
+<span class="line"><span>│                         │                          │  PROPOSITION            │</span></span>
+<span class="line"><span>│  1. Cross-border        │  A non-custodial          │                         │</span></span>
+<span class="line"><span>│  freelancer payments    │  orchestration layer:     │  &quot;The licensed parties  │</span></span>
+<span class="line"><span>│  take 1–5 days and      │                          │  move the money.        │</span></span>
+<span class="line"><span>│  hide cost in FX        │  • Sender pays by card   │  We make the chain      │</span></span>
+<span class="line"><span>│  spreads.               │    in their currency.    │  provable.&quot;             │</span></span>
+<span class="line"><span>│                         │  • Licensed on-ramp      │                         │</span></span>
+<span class="line"><span>│  2. Crypto settlement   │    converts to USDC/     │  Neither side ever      │</span></span>
+<span class="line"><span>│  rails leave a wallet   │    EURC.                 │  touches a wallet.      │</span></span>
+<span class="line"><span>│  in the flow — either   │  • Hedera anchors every  │  Every compliance       │</span></span>
+<span class="line"><span>│  the sender or the      │    compliance, quote,    │  decision is            │</span></span>
+<span class="line"><span>│  business needs one.    │    and routing decision. │  independently          │</span></span>
+<span class="line"><span>│                         │  • Licensed local        │  verifiable via a       │</span></span>
+<span class="line"><span>│  3. In a chain of       │    partner credits a     │  public Mirror Node,    │</span></span>
+<span class="line"><span>│  independently licensed │    normal bank account.  │  not a row in our       │</span></span>
+<span class="line"><span>│  parties, no party can  │                          │  database.              │</span></span>
+<span class="line"><span>│  verify another&#39;s       │  Hedera = trust anchor.  │                         │</span></span>
+<span class="line"><span>│  compliance record.     │  Licensed rails = money. │                         │</span></span>
+<span class="line"><span>├─────────────────────────┼──────────────────────────┼─────────────────────────┤</span></span>
+<span class="line"><span>│  EXISTING               │  KEY METRICS             │  UNFAIR ADVANTAGE       │</span></span>
+<span class="line"><span>│  ALTERNATIVES           │                          │                         │</span></span>
+<span class="line"><span>│                         │  • Transfers per         │  The compliance-trail   │</span></span>
+<span class="line"><span>│  • Wise / Revolut:      │    corridor per day      │  itself: once licensed  │</span></span>
+<span class="line"><span>│    good UX, no          │  • HCS anchors per day   │  parties anchor to the  │</span></span>
+<span class="line"><span>│    verifiable trail,    │    (real TPS)            │  same topic, the        │</span></span>
+<span class="line"><span>│    high float required. │  • Avg. time to verify   │  multi-party record     │</span></span>
+<span class="line"><span>│                         │    (Mirror Node latency) │  becomes richer and     │</span></span>
+<span class="line"><span>│  • Bridge / Due / BVNK: │  • Compliance anchor     │  harder to replicate    │</span></span>
+<span class="line"><span>│    stablecoin rails,    │    cost per transfer     │  without that history.  │</span></span>
+<span class="line"><span>│    but still no         │    (&lt; $0.001)            │                         │</span></span>
+<span class="line"><span>│    verifiable trail.    │  • Corridor partner      │  No custody = no        │</span></span>
+<span class="line"><span>│                         │    agreements signed     │  CASP/PI licence needed │</span></span>
+<span class="line"><span>│  • Ramp / MoonPay:      │  • B2B compliance API    │  = faster time to       │</span></span>
+<span class="line"><span>│    wallet required for  │    subscribers           │  market than any        │</span></span>
+<span class="line"><span>│    every user.          │                          │  licensed competitor.   │</span></span>
+<span class="line"><span>├─────────────────────────┴──────────────────────────┴─────────────────────────┤</span></span>
+<span class="line"><span>│  CUSTOMER SEGMENTS                                                            │</span></span>
+<span class="line"><span>│                                                                               │</span></span>
+<span class="line"><span>│  PRIMARY: Freelancers in emerging markets receiving payment from EU/UK        │</span></span>
+<span class="line"><span>│  clients — Nigeria, India, Brazil (priority corridors, $176.5B+ SAM).        │</span></span>
+<span class="line"><span>│  They need the money in their bank account, not in a crypto wallet.          │</span></span>
+<span class="line"><span>│                                                                               │</span></span>
+<span class="line"><span>│  SECONDARY: SMEs paying international contractors who need an auditable       │</span></span>
+<span class="line"><span>│  compliance trail for their own finance/legal team (B2B API segment).        │</span></span>
+<span class="line"><span>│                                                                               │</span></span>
+<span class="line"><span>│  NOT the recipient — the recipient receives a normal bank credit and          │</span></span>
+<span class="line"><span>│  never registers. Zero adoption cost on the receiving side.                  │</span></span>
+<span class="line"><span>├───────────────────────────────────────┬───────────────────────────────────────┤</span></span>
+<span class="line"><span>│  CHANNELS                             │  COST STRUCTURE                       │</span></span>
+<span class="line"><span>│                                       │                                       │</span></span>
+<span class="line"><span>│  1. Freelance platform partnerships   │  FIXED                                │</span></span>
+<span class="line"><span>│     (reach many senders through       │  • Engineering headcount              │</span></span>
+<span class="line"><span>│      one integration)                 │  • Partner management (BD)            │</span></span>
+<span class="line"><span>│  2. Diaspora community channels       │  • Compliance operations              │</span></span>
+<span class="line"><span>│     (WhatsApp groups, community       │    (borne by licensed parties,        │</span></span>
+<span class="line"><span>│      associations, comparison sites)  │     not us — structural advantage)    │</span></span>
+<span class="line"><span>│  3. Licensed payout-partner           │                                       │</span></span>
+<span class="line"><span>│     co-marketing (access to           │  VARIABLE (per transfer)              │</span></span>
+<span class="line"><span>│     partner&#39;s existing user base)     │  • On-ramp fee (card/SEPA)            │</span></span>
+<span class="line"><span>│                                       │  • Payout partner margin              │</span></span>
+<span class="line"><span>│  EXPLICITLY NOT: broad paid           │  • FX spread (mostly theirs)          │</span></span>
+<span class="line"><span>│  advertising pre-revenue.             │  • Hedera fee &lt; $0.001 (negligible)   │</span></span>
+<span class="line"><span>├───────────────────────────────────────┴───────────────────────────────────────┤</span></span>
+<span class="line"><span>│  REVENUE STREAMS                                                              │</span></span>
+<span class="line"><span>│                                                                               │</span></span>
+<span class="line"><span>│  1. Transparent flat fee per transfer (stated, not hidden in spread)         │</span></span>
+<span class="line"><span>│  2. Stated FX spread (below global average, above zero — honest margin)      │</span></span>
+<span class="line"><span>│  3. B2B compliance-evidence API (sold to institutions that want the          │</span></span>
+<span class="line"><span>│     audit trail for regulatory purposes — the highest-margin stream          │</span></span>
+<span class="line"><span>│     because cost is fractions of a cent and no one else offers it)           │</span></span>
+<span class="line"><span>│                                                                               │</span></span>
+<span class="line"><span>│  NOT revenue: no token, no float income (we hold no float).                 │</span></span>
+<span class="line"><span>└───────────────────────────────────────────────────────────────────────────────┘</span></span></code></pre></div><hr><h2 id="key-assumptions-to-validate-first" tabindex="-1">Key assumptions to validate first <a class="header-anchor" href="#key-assumptions-to-validate-first" aria-label="Permalink to &quot;Key assumptions to validate first&quot;">​</a></h2><p>These are the riskiest bets the canvas rests on, in order:</p><table tabindex="0"><thead><tr><th>#</th><th>Assumption</th><th>How to test</th></tr></thead><tbody><tr><td>1</td><td>Freelancers in priority corridors will trust a non-bank service with their payment</td><td>User interviews (5–10), see <a href="./../project/user-feedback-survey.html">User Feedback Survey</a></td></tr><tr><td>2</td><td>A licensed payout partner will agree to anchor their compliance records</td><td>Pilot conversation with Yellow Card / MoMo / Airtel Money</td></tr><tr><td>3</td><td>The compliance-evidence API has B2B willingness to pay</td><td>3–5 conversations with SME finance/compliance leads</td></tr><tr><td>4</td><td>The verifiable trail is genuinely valued, not just interesting</td><td>Include Q6 in the user survey; check if SMEs mention audit trail unprompted</td></tr></tbody></table><hr><p><em>For the full financial model see <a href="./global-capture-model.html">Global Capture Model</a>. For risk analysis see <a href="./swot.html">SWOT</a> and <a href="./../analysis/risks-mitigations.html">Risks &amp; Mitigations</a>.</em></p>`,10)])])}const u=a(t,[["render",i]]);export{m as __pageData,u as default};
