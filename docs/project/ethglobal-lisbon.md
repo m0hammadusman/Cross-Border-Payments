@@ -3,17 +3,15 @@
 F2F Cross-Border was extended past the original UZH submission (see
 [UZH Blockchain](uzh-blockchain.md) for that phase) to also enter
 **ETHGlobal Lisbon 2026**, under the **Continuity Track** ("Ship a
-Feature", extending an existing project rather than starting fresh)
-and targeting two bounties:
+Feature", extending an existing project rather than starting fresh).
 
-- **No Solidity Allowed** — the entire settlement, anchoring, and
-  completion layer runs on Hedera's native services (HCS, HTS, HSS),
-  with no Solidity contracts anywhere in the flow.
-- **Autonomous On-Chain Automation Platform** (Continuity-only) — met
-  by the Hedera Schedule Service (HSS) completion anchor, described
-  below, which is genuinely autonomous: once both required signatures
-  land, Hedera's own consensus executes the message submission with
-  no further code of ours involved.
+The extension focused on ensuring the entire settlement, anchoring, and
+completion layer runs on Hedera's native services (HCS, HTS, HSS),
+with no Solidity contracts anywhere in the flow. It also added the 
+Hedera Schedule Service (HSS) completion anchor, described
+below, which is genuinely autonomous: once both required signatures
+land, Hedera's own consensus executes the message submission with
+no further code of ours involved.
 
 ## What was added for this submission
 

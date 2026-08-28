@@ -25,8 +25,7 @@ completion anchor, a dedicated completion topic, the How It Works
 walkthrough page, and the SaucerSwap liquidity source. Full detail:
 [ETHGlobal Lisbon 2026](ethglobal-lisbon.md).
 
-**Outcome:** won the **Autonomous On-Chain Automation Platform**
-partner prize (Hedera track).
+**Outcome:** completed submission.
 
 ## 3. Becoming a collection: the site split, and OnChain Oversight (26–28 July 2026)
 
