@@ -82,7 +82,7 @@ export default function CollectionHome() {
                   {proj.image && (
                     <img
                       src={proj.image}
-                      alt={`${proj.name} — ETHGlobal Lisbon 2026 showcase`}
+                      alt={`${proj.name} showcase`}
                       className="w-full max-w-sm rounded-2xl border border-hairline mb-6 mx-auto"
                     />
                   )}
