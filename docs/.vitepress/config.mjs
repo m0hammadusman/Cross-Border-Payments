@@ -88,7 +88,6 @@ export default defineConfig({
         items: [
           { text: 'Milestones', link: '/project/milestones' },
           { text: 'UZH Blockchain', link: '/project/uzh-blockchain' },
-          { text: 'ETHGlobal Lisbon 2026', link: '/project/ethglobal-lisbon' },
           { text: 'Roadmap', link: '/project/roadmap' },
           { text: 'Pitch Strategy', link: '/project/pitch-strategy' },
           { text: 'User Feedback Survey', link: '/project/user-feedback-survey' },

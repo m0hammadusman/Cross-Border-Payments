@@ -1,9 +1,7 @@
 # UZH Blockchain
 
 F2F Cross-Border started here as a project for the University of
-Zurich's **Deep Dive into Blockchain (DDiB 2026)** summer school,
-before the later extension for ETHGlobal Lisbon 2026 (covered
-separately in [ETHGlobal Lisbon 2026](ethglobal-lisbon.md)).
+Zurich's **Deep Dive into Blockchain (DDiB 2026)** summer school.
 
 ## The core idea
 
@@ -93,6 +91,4 @@ Everything above was the complete, working UZH submission by the
 23 July hand-in. The Hedera Schedule Service completion anchor, the
 2-of-2 threshold-key intermediary account, the dedicated completion
 topic, the How It Works walkthrough, and the SaucerSwap liquidity
-source were all added afterward, specifically for the ETHGlobal
-Lisbon 2026 extension, see
-[ETHGlobal Lisbon 2026](ethglobal-lisbon.md) for that phase.
+source were all added afterward as further extensions of the project architecture.

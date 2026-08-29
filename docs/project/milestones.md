@@ -17,15 +17,13 @@ and the initial documentation site. Full phase-by-phase detail:
 
 **Outcome:** completed submission, 23 July hand-in.
 
-## 2. ETHGlobal Lisbon 2026 (24–26 July 2026)
+## 2. Post-UZH Extension (24–26 July 2026)
 
-Independently extended past the UZH submission for ETHGlobal Lisbon,
-Continuity Track. Added the HSS-gated, 2-of-2 threshold-key
+Independently extended past the initial UZH submission. Added the HSS-gated, 2-of-2 threshold-key
 completion anchor, a dedicated completion topic, the How It Works
-walkthrough page, and the SaucerSwap liquidity source. Full detail:
-[ETHGlobal Lisbon 2026](ethglobal-lisbon.md).
+walkthrough page, and the SaucerSwap liquidity source.
 
-**Outcome:** completed submission.
+**Outcome:** completed.
 
 ## 3. Becoming a collection: the site split, and OnChain Oversight (26–28 July 2026)
 
@@ -72,13 +70,12 @@ Tracked here as they're decided, rather than duplicated across pages:
 |---|---|
 | Cambridge C:\>DIR Final Round | Pending Preliminary Round result |
 | Ethereum Foundation Ecosystem Support Program (ESP) | Under consideration, for OnChain Oversight, independent of the Cambridge result |
-| ETHGlobal Online / other future ETHGlobal events | Under consideration |
 
 ## What each milestone actually changed, at a glance
 
 | Milestone | Added to the architecture |
 |---|---|
 | UZH Blockchain | HCS trust layer (3 anchor types), corridor routing, full app, real DB, real tests |
-| ETHGlobal Lisbon 2026 | HSS completion anchor, 2-of-2 threshold account, dedicated completion topic, SaucerSwap liquidity |
+| Post-UZH Extension | HSS completion anchor, 2-of-2 threshold account, dedicated completion topic, SaucerSwap liquidity |
 | Site split + OnChain Oversight | Collection hub, `/cross-border` split, regulator-oversight section, sister project defined |
 | Cambridge C:\>DIR (submitted) | Formal agentic architecture proposal (retrieval/analysis/verifier agents) for OnChain Oversight |
