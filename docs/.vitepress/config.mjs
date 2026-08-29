@@ -1,9 +1,11 @@
 import { defineConfig } from 'vitepress'
 
+const repoName = process.env.GITHUB_REPOSITORY ? process.env.GITHUB_REPOSITORY.split('/')[1] : 'Cross-Border-Payments'
+
 export default defineConfig({
   title: "F2F Cross-Border",
   description: "Fiat-to-Fiat Settlement Platform",
-  base: '/Cross-Border-Payments/',
+  base: `/${repoName}/`,
   themeConfig: {
     nav: [
       { text: 'Home', link: '/' },
