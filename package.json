@@ -10,6 +10,7 @@
     "test:e2e": "playwright test",
     "demo:modular": "node demo-modular.mjs",
     "demo:router": "node demo-router.mjs",
+    "build": "npm --prefix frontend install && npm --prefix frontend run build",
     "server": "node backend/server.mjs",
     "client": "npm --prefix frontend run dev",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
