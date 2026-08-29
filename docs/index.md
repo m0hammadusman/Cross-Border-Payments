@@ -5,12 +5,6 @@ verifiable compliance trail anchored on Hedera.
 
 DDiB 2026 · University of Zurich
 
-> This repo now serves a small collection, not one page: `/` is a
-> collection hub, this project lives at `/cross-border`, and a sister
-> project, **OnChain Oversight**, extends the same trust-layer
-> philosophy to a regulator-facing audience. See
-> [Milestones](project/milestones.md) for the full timeline of
-> what was built where and when.
 
 ## What this proves
 

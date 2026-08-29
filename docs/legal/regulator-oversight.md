@@ -98,8 +98,7 @@ platform could operate within existing legal and regulatory
 frameworks, including... laws designed to counter money-laundering."
 Even a BIS-led consortium has not yet solved cross-jurisdictional
 AML/CFT oversight for a multi-ledger system, which is precisely the
-gap this project's regulator-oversight case, and its sister project
-tackling on-chain agent activity, are aimed at.
+gap this project's regulator-oversight case is aimed at.
 
 ## What this is not claiming
 
